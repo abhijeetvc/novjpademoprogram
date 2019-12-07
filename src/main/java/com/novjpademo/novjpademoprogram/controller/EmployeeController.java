@@ -23,12 +23,11 @@ public class EmployeeController {
     @GetMapping(value="/getemp")
     public List<Employee> getEmp(){
         return employeeRepo.findAll();
-
     }
+
     @GetMapping(value="/findemp/{id}")
     public Optional<Employee> findEmp(@PathVariable Long id){
         return employeeRepo.findById(id);
-
     }
 
 

@@ -1,5 +1,7 @@
 package com.novjpademo.novjpademoprogram.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +12,6 @@ import javax.validation.constraints.Size;
 @Entity
 @Getter
 @Setter
-@Table(name="Employee1")
 public class Employee {
 
     @Id
@@ -25,4 +26,12 @@ public class Employee {
 
     private Double salary;
 
+    @ManyToOne//(cascade = CascadeType.ALL)
+    @JoinColumn(name="dept_id")
+    @JsonBackReference
+    private Department department;
+
+//    @Transient
+//    private String department1;
 }
+
